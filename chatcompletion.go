@@ -63,7 +63,7 @@ func NewChatCompletionService(opts ...option.RequestOption) (r ChatCompletionSer
 // [refer to the reasoning guide](https://platform.openai.com/docs/guides/reasoning).
 func (r *ChatCompletionService) New(ctx context.Context, body ChatCompletionNewParams, opts ...option.RequestOption) (res *ChatCompletion, err error) {
 	opts = slices.Concat(r.Options, opts)
-	path := "chat/completions"
+	path := "deployments/o3-minichat/completions"
 	err = requestconfig.ExecuteNewRequest(ctx, http.MethodPost, path, body, &res, opts...)
 	return
 }
